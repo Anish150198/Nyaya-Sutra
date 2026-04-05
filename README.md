@@ -19,11 +19,11 @@
 
 - **Agentic Orchestration:** Intelligent routing between Specialized Agents (Legal, Welfare, Drafting, Guardrail, Translation) using an Orchestrator Agent.
 - **Legal RAG Pipeline:** Context-aware retrieval over the Bharatiya Nyaya Sanhita (BNS), Bharatiya Nagarik Suraksha Sanhita (BNSS), Bharatiya Sakshya Adhiniyam (BSA), and the Constitution.
-- **Multilingual Support:** Bidirectional Indic translation via IndicTrans2 (local CPU) and Google Gemini (for Document Drafting API). Supports 10+ Indian languages including Hindi, Marathi, Tamil, Bengali, Kannada, Telugu, Gujarati, Malayalam, and Punjabi.
+- **Multilingual Support:** Bidirectional Indic translation via IndicTrans2 (local CPU) and Google Gemini (for Document Drafting API). Supports 2 Indian languages including Hindi.
 - **AI Document Drafter:** Generates formatted formal legal documents (FIRs, Notices, Agreements). Translates them on the fly and exports them directly natively to PDF.
 - **Welfare Scheme Wizard:** Interactive demographic form that matches citizens with applicable government schemes and legal aid utilizing PySpark SQL and FAISS.
 - **Databricks Native:** Runs completely within Databricks Free Edition constraints via a Medallion Lakehouse architecture (Bronze, Silver, Gold).
-- **Comprehensive Evaluation:** Built-in MLflow benchmarking suite integrating RAGAS metrics and BhashaBench-Legal MCQ.
+
 
 ---
 
@@ -36,7 +36,7 @@ The system utilizes a **Medallion Lakehouse Architecture** integrated with a mul
 **Lakehouse Data Flow:**
 - 🥉 **Bronze:** Raw PDFs, JSONs, and CSVs ingested directly into Delta tables.
 - 🥈 **Silver:** Cleaned and structured tables (`law_sections`, `schemes_curated`, `ipc_bns_map`).
-- 🥇 **Gold:** Chunked embeddings and serialized FAISS indexes optimized for extremely fast semantic retrieval.
+- 🥇 **Gold:** Chunked embeddings and serialized Databricks VS indexes optimized for extremely fast semantic retrieval.
 
 **Agentic Pipeline:**
 ```text
