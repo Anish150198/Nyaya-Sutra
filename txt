@@ -1,0 +1,17 @@
+I am not able to run the project locally and see the UI
+
+I dont want to use open-source LLM from transformers hub, I wan to use openai model for llm and embedding in local and remote databricks, and I want to use stramlit working?
+
+the medallion architecture should work both on local and remote
+
+for local, I will be using chromadb and use vector search from databricks, and same for remote
+
+please make appropriate chanegs in files as needed and give a run.sh script to run one by one line
+
+first ensure local works, then I will git clone in databricks free edition workspace and do the same steps, make sure paths are appropriate so that it works
+
+DONT USE FAISS, DONT USE QUANTIZED MODELS
+
+REFER CODEBASE AND SCRIPTS
+ALWAYS USE nb conda environment
+
