@@ -1,4 +1,4 @@
-<h1 align="center">⚖️ Nyaya-Sahayak: Nyaya-Sahayak Lakehouse</h1>
+<h1 align="center">⚖️ Nyaya-Sutra: Nyaya-Sahayak Lakehouse</h1>
 
 <p align="center">
   A Databricks-native, agentic legal and welfare assistant for India.
@@ -159,8 +159,7 @@ cp .env.example .env
 |----------|-------------|---------|
 | `DATABRICKS_HOST` | Your Databricks workspace URL | `https://dbc-xxxxx.cloud.databricks.com` |
 | `DATABRICKS_TOKEN` | Personal access token | `dapi_xxxxxxxxxx` |
-| `PARAM1_MODEL_PATH` | Path to Param-1 GGUF | `./models/weights/param1-2.9b-q8_0.gguf` |
-| `INDICTRANS2_MODEL_PATH`| Path to IndicTrans2 CT2 | `./models/weights/indictrans2-en-indic-1B-ct2` |
+
 
 ### 3. Model Downloads
 
@@ -198,7 +197,7 @@ streamlit run app/main.py --server.port 8501
 Navigate to `http://localhost:8501` to access:
 1. **💬 Chat (Citizen/Lawyer):** Conversational AI for simple legal queries.
 2. **🏛️ Scheme Wizard:** Survey form to retrieve matching government schemes.
-
+3. **Document Drafter:** Get an FIR/GR document sample based on your intents
 ---
 
 ## ☁️ Databricks Deployment
@@ -206,15 +205,15 @@ Navigate to `http://localhost:8501` to access:
 1. Commit and push your codebase to a Git repository.
 2. Inside your Databricks workspace, navigate to **Apps → Create App**.
 3. Point to your repository and assign `app.yaml` as the deployment configuration.
-
+4. Run app as: `databricks apps deploy <my-app-name> --source-code-path /Workspace/Users/<email>/my-app-folder`
 ---
 
 ## ⚠️ Databricks Free Edition Constraints
 
 | Resource | Limit | Our Optimization Strategy |
 |----------|-------|---------------------------|
-| **RAM** | ~15 GB | Runs Param-1 Q8_0 (~3 GB) + FAISS (~1 GB) + IndicTrans2 (~2 GB) perfectly within limits |
-| **GPU** | None | 100% inference executed on CPU efficiently via `llama-cpp-python` and `CTranslate2` |
+| **RAM** | ~15 GB | Runs LLMs + Databricks Vector Search + IndicTrans2 (~2 GB) transaltion perfectly within limits |
+| **GPU** | None | We do RAG on CPU using LLMs |
 
 ---
 
